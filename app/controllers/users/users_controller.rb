@@ -1,9 +1,7 @@
 class Users::UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :show, :update, :destroy, :new_employee_rating,:human_resources,:human_resources_test,:human_resources_test1, :edit_team_rating, :ytd_dynamic, :avg_dynamic]
+  before_action :set_user, only: [:edit, :show, :update, :destroy]
 
   include ApplicationHelper
-
-
 
   # GET /users
   # GET /users.json
@@ -78,10 +76,6 @@ class Users::UsersController < ApplicationController
   end
 
 
-
-
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -92,11 +86,7 @@ class Users::UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       # params.fetch(:user, {})
-      params.require(:user).permit(:id, :first_name, :last_name, :title, :is_current, :start_date, :email, :is_officer, :is_admin, :next_performance_review, :password, :password_confirmation,:user_headshot, :id, :review_item_id, :review_items_by_role_id, :is_active,:rated_by_user_id, :notes_allowed, :rate_period, :rating, :is_team, :pros, :cons, :notes, :user_reviews, :form_role_id, user_reviews_attributes: [:id, :review_item_id, :rated_by_user_id, :notes_allowed, :rate_period, :rating, :is_team, :pros, :cons, :notes, :checked, :multiplier, review_notes_attributes: [:user_review_id, :general_notes, :pros, :cons] ],)
+      params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation)
     end
-
-
-
-
 
 end
